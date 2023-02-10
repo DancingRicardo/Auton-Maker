@@ -9,19 +9,26 @@ private:
 
 	Texture2D fieldTexture;
 
-	static constexpr int fieldRealHeight = 3250; // Mm
-	static constexpr int fieldRealWidth = 3250; // Mm
+	
+	std::vector<Point>* robotPointVector;
+	std::vector<Point>* discPointVector;
 
-	static constexpr int fieldScreenHeight = 650; // real height / 5
-	static constexpr int fieldScreenWidth = 650;  // real width  / 5
-
-	std::vector<Point>* pointVector;
+	
 
 public: 
 
-	Field();
+	static constexpr int fieldRealHeight = 3250; // Mm
+	static constexpr int fieldRealWidth = 3250; // Mm
 
-	void importSetPoints(std::vector<Point>* inputPointVector);
+	static constexpr int fieldScreenHeight = 291; // real height / 11.16838
+	static constexpr int fieldScreenWidth = 291;  // real width  / 11.16838
+
+	Vector2 redGoalCoords = { 360, 130 };
+	Vector2 blueGoalCoords = { 130, 360 };
+
+	static constexpr Vector2 fieldDefCoords = { 100, 100 };
+
+	Field(std::vector<Point>* robotPointVectorArg, std::vector<Point>* discPointVectorArg);
 
 	void update();
 
